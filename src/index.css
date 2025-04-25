@@ -1,0 +1,811 @@
+@import url('https://fonts.googleapis.com/css2?family=Recoleta:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 38% 95%;
+    --foreground: 25 30% 18%;
+
+    --card: 42 30% 94%;
+    --card-foreground: 25 30% 18%;
+
+    --popover: 42 30% 96%;
+    --popover-foreground: 25 30% 18%;
+
+    --primary: 25 33% 29%;
+    --primary-foreground: 42 38% 95%;
+
+    --secondary: 32 28% 72%;
+    --secondary-foreground: 25 30% 18%;
+
+    --muted: 42 20% 90%;
+    --muted-foreground: 25 20% 35%;
+
+    --accent: 43 46% 60%;
+    --accent-foreground: 25 30% 18%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 42 38% 95%;
+
+    --border: 32 28% 82%;
+    --input: 32 28% 82%;
+    --ring: 32 28% 72%;
+
+    --radius: 0.5rem;
+
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    --card-shadow-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+                          0 8px 10px -6px rgba(0, 0, 0, 0.06);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Theme transition duration */
+    --theme-transition-duration: 1500ms;
+    --theme-transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Font family variables */
+    --font-brand: 'DM Serif Display', serif;
+    --font-card: 'Inconsolata', monospace;
+    --font-body: 'Urbanist', sans-serif;
+    --font-ui: 'Manrope', sans-serif;
+    --font-accent: 'Caveat', cursive;
+    
+    /* Typography scale */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    --font-size-6xl: 3.75rem;
+    --font-size-7xl: 4.5rem;
+    
+    /* Letter spacing */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0em;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+    
+    /* Line heights */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+
+    /* True handwriting font variables */
+    --font-display: 'Playfair Display', serif;  /* Classic serif for section titles */
+    --font-title: 'Satisfy', cursive;           /* Flowing script for brand/logo */
+    --font-body: 'Urbanist', sans-serif;        /* Clean sans for descriptions */
+    --font-accent: 'Caveat', cursive;           /* Casual handwriting for prices, notes, badges */
+  }
+
+  .dark {
+    --background: 25 30% 8%;
+    --foreground: 42 38% 95%;
+
+    --card: 25 25% 12%;
+    --card-foreground: 42 38% 95%;
+
+    --popover: 25 25% 12%;
+    --popover-foreground: 42 38% 95%;
+
+    --primary: 32 28% 72%;
+    --primary-foreground: 25 30% 18%;
+
+    --secondary: 25 20% 24%;
+    --secondary-foreground: 42 38% 95%;
+
+    --muted: 25 20% 24%;
+    --muted-foreground: 42 30% 80%;
+
+    --accent: 43 40% 50%;
+    --accent-foreground: 42 38% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 42 38% 95%;
+
+    --border: 25 20% 24%;
+    --input: 25 20% 24%;
+    --ring: 32 28% 52%;
+
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    --card-shadow-hover: 0 15px 30px -10px rgba(0, 0, 0, 0.3),
+                        0 8px 10px -5px rgba(0, 0, 0, 0.2);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: var(--font-body);
+    @apply bg-background text-foreground;
+    background-image: url('/paper-texture.png');
+    background-blend-mode: multiply;
+    transition: background-color var(--theme-transition-duration) var(--theme-transition-timing),
+                color var(--theme-transition-duration) var(--theme-transition-timing);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* Typography base styles */
+  h1, h2, h3 {
+    font-family: var(--font-brand);
+    font-weight: 600;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-card);
+    font-weight: 500;
+    line-height: var(--leading-snug);
+  }
+
+  p {
+    font-family: var(--font-body);
+    margin-bottom: 1rem;
+  }
+
+  button, a.button, .nav-item {
+    font-family: var(--font-ui);
+    font-weight: 500;
+  }
+}
+
+/* --- SECTION STYLES --- */
+.section {
+  padding: 6rem 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section[data-inview="false"] {
+  opacity: 0.5;
+  transform: translateY(20px);
+}
+
+.section[data-inview="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section__header {
+  max-width: 48rem;
+  margin: 0 auto 4rem;
+  text-align: center;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section[data-inview="false"] .section__header {
+  opacity: 0.7;
+  transform: translateY(10px);
+}
+
+.section[data-inview="true"] .section__header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section__title {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section__title:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.section__title:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.section__subtitle {
+  color: hsl(var(--muted-foreground));
+  font-size: 1.125rem;
+}
+
+/* --- CARD GRID --- */
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 78rem;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .card-grid > div {
+    flex-direction: column;
+  }
+  
+  .card-grid > div > div {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .card-grid > div > div {
+    width: calc(50% - 1rem);
+  }
+  
+  .card-grid > div > div:last-child {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-grid > div > div {
+    width: calc(33.333% - 1rem);
+  }
+}
+
+/* Updated for Framer Motion */
+.card-grid__item {
+  height: 100%;
+}
+
+/* --- CARD STYLES --- */
+.card-wrapper {
+  height: 100%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  padding: 2px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border) / 0.8);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease;
+  transform-origin: center center;
+  text-align: left;
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.card:hover, .card:focus {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--card-shadow-hover);
+  border-color: hsl(var(--accent) / 0.5);
+  z-index: 1;
+}
+
+.card:active {
+  transform: translateY(-2px) scale(1.005);
+}
+
+.card__image-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card__image,
+.card:focus .card__image {
+  transform: scale(1.05);
+}
+
+.card__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, 
+    rgba(var(--card), 1) 0%, 
+    rgba(var(--card), 0.8) 10%,
+    rgba(var(--card), 0) 50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card__image-overlay,
+.card:focus .card__image-overlay {
+  opacity: 0.2;
+}
+
+.card__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.25rem;
+  background-image: url('/paper-texture.png');
+  background-blend-mode: multiply;
+  z-index: 1;
+  border-radius: 0 0 0.75rem 0.75rem;
+}
+
+.dark .card__content {
+  background-blend-mode: color-burn;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.card__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-right: 3rem;
+}
+
+.card__price {
+  font-weight: 600;
+  white-space: nowrap;
+  color: hsl(var(--card-foreground));
+}
+
+.card__description {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card__footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card__badge {
+  align-self: flex-start;
+  background-color: hsl(var(--accent) / 0.2);
+  color: hsl(var(--accent-foreground));
+  border-color: hsl(var(--accent) / 0.3);
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.dark .card__badge {
+  color: hsl(var(--accent));
+}
+
+.card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.card__dietary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.5rem;
+}
+
+.card__tag {
+  font-size: 0.7rem;
+  transition: all 0.2s ease;
+}
+
+.card__more {
+  font-size: 0.7rem;
+  color: hsl(var(--muted-foreground));
+  padding: 0.25rem 0.5rem;
+}
+
+.card--special {
+  position: relative;
+  overflow: hidden;
+}
+
+.card--special:after {
+  content: "Chef's Pick";
+  position: absolute;
+  top: 10px;
+  right: -35px;
+  transform: rotate(45deg);
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  padding: 2px 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+/* --- DIALOG STYLES --- */
+.dialog-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.dialog-image__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- COFFEE STEAM --- */
+.coffee-steam {
+  @apply absolute rounded-full pointer-events-none;
+  width: 3px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.6);
+  bottom: 90%;
+  filter: blur(1px);
+  animation: steam 2s ease-out infinite;
+}
+
+@keyframes steam {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    opacity: 0.4;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    transform: translateY(-15px) scale(1.8);
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+/* Ensure steam is visible in light themes */
+.menu-section-morning .coffee-steam {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.menu-section-morning .coffee-steam::before {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Afternoon golden steam */
+.menu-section-afternoon .coffee-steam {
+  background-color: rgba(184, 134, 11, 0.5);
+}
+
+.menu-section-afternoon .coffee-steam::before {
+  background-color: rgba(184, 134, 11, 0.5);
+}
+
+@keyframes steam-afternoon {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+    background-color: rgba(184, 134, 11, 0.5);
+  }
+  50% {
+    opacity: 0.4;
+    background-color: rgba(184, 134, 11, 0.3);
+  }
+  100% {
+    transform: translateY(-15px) scale(1.8);
+    opacity: 0;
+    background-color: rgba(184, 134, 11, 0);
+  }
+}
+
+@keyframes steam-light {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    opacity: 0.3;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    transform: translateY(-15px) scale(1.8);
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+/* --- THEME CLASSES --- */
+.menu-section-morning {
+  @apply bg-gradient-to-br from-cafe-cream to-cafe-paper;
+  transition: background-color var(--theme-transition-duration) var(--theme-transition-timing),
+              color var(--theme-transition-duration) var(--theme-transition-timing);
+}
+
+.menu-section-afternoon {
+  @apply bg-gradient-to-br from-cafe-gold/20 to-amber-200/90;
+  transition: background-color var(--theme-transition-duration) var(--theme-transition-timing),
+              color var(--theme-transition-duration) var(--theme-transition-timing);
+}
+
+.menu-section-evening {
+  @apply bg-gradient-to-br from-cafe-mocha/20 to-cafe-mocha/50;
+  transition: background-color var(--theme-transition-duration) var(--theme-transition-timing),
+              color var(--theme-transition-duration) var(--theme-transition-timing);
+}
+
+.menu-section-surprise {
+  @apply bg-gradient-to-br from-cafe-mocha/70 to-cafe-forest/70 dark;
+  transition: background-color var(--theme-transition-duration) var(--theme-transition-timing),
+              color var(--theme-transition-duration) var(--theme-transition-timing);
+  background-image: url('/paper-texture.png'), 
+                    radial-gradient(circle at top right, 
+                                    rgba(184, 134, 11, 0.2), 
+                                    transparent 70%),
+                    radial-gradient(circle at bottom left, 
+                                    rgba(184, 134, 11, 0.2), 
+                                    transparent 70%);
+  background-blend-mode: overlay, screen, normal;
+}
+
+/* --- SURPRISE SECTION STYLES --- */
+#surprise-section {
+  position: relative;
+}
+
+#surprise-section:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, 
+                            transparent, 
+                            rgba(184, 134, 11, 0.5) 20%, 
+                            rgba(184, 134, 11, 0.8) 50%,
+                            rgba(184, 134, 11, 0.5) 80%, 
+                            transparent);
+}
+
+#surprise-section:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, 
+                            transparent, 
+                            rgba(184, 134, 11, 0.5) 20%, 
+                            rgba(184, 134, 11, 0.8) 50%,
+                            rgba(184, 134, 11, 0.5) 80%, 
+                            transparent);
+}
+
+.surprise-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.surprise-badge:before {
+  content: "Chef's Special";
+  position: absolute;
+  top: 12px;
+  right: -38px;
+  transform: rotate(45deg);
+  background-color: rgba(184, 134, 11, 0.8);
+  color: white;
+  padding: 4px 40px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: var(--font-accent);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* --- CUSTOM CURSOR --- */
+.custom-cursor {
+  @apply fixed w-6 h-6 rounded-full pointer-events-none z-50 hidden md:flex items-center justify-center;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.parallax-layer {
+  will-change: transform;
+}
+
+/* --- MOBILE NAVIGATION --- */
+.mobile-nav {
+  @apply fixed bottom-0 left-0 right-0 bg-background/80 backdrop-blur-md border-t py-3 px-4 flex justify-around md:hidden;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  z-index: 40;
+}
+
+/* --- CUSTOM SCROLLBAR --- */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(184, 134, 11, 0.05);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(184, 134, 11, 0.2);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(184, 134, 11, 0.3);
+}
+
+/* --- LUNCH SECTION SPECIFIC STYLES --- */
+.lunch-section .section__title {
+  color: hsl(43, 74%, 49%);
+  text-shadow: 0 2px 4px rgba(184, 134, 11, 0.15);
+}
+
+.lunch-section .section__title:after {
+  background-color: hsl(43, 74%, 49%);
+  height: 3px;
+}
+
+.lunch-section .card {
+  border-color: rgba(184, 134, 11, 0.3);
+}
+
+.lunch-section .card:hover {
+  box-shadow: 0 15px 30px -10px rgba(184, 134, 11, 0.15),
+              0 8px 10px -5px rgba(184, 134, 11, 0.1);
+  border-color: rgba(184, 134, 11, 0.5);
+}
+
+.lunch-section .card__badge {
+  background-color: rgba(184, 134, 11, 0.15);
+  border-color: rgba(184, 134, 11, 0.3);
+  color: hsl(43, 74%, 49%);
+}
+
+/* Typography utility classes */
+.page-title {
+  font-family: var(--font-brand);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  font-size: var(--font-size-6xl);
+  line-height: 1.1;
+}
+
+.section-title {
+  font-family: var(--font-brand);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  font-size: var(--font-size-4xl);
+}
+
+.card-title {
+  font-family: var(--font-card);
+  font-weight: 500;
+  letter-spacing: var(--tracking-normal);
+  line-height: 1.3;
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: var(--tracking-normal);
+  line-height: 1.6;
+}
+
+.ui-text {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Add these custom styles for specific text elements */
+.menu-item-name {
+  font-family: var(--font-card);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.menu-item-description {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.badge-text {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.logo-text {
+  font-family: var(--font-brand);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
