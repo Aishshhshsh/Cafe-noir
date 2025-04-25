@@ -185,7 +185,7 @@ export const MenuCard = ({
             <div className="card__content">
               <div className="card__header">
                 <h3 className="card__title font-card">{item.name}</h3>
-                <span className="card__price font-ui"₹>{item.price}</span>
+                <span className="card__price font-ui"₹>{item.price.toLocaleString()}</span>
               </div>
               
               <motion.div 
