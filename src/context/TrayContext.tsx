@@ -102,7 +102,7 @@ export const TrayProvider = ({ children }: { children: ReactNode }) => {
   // Calculate totals
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => {
-    // Handle price format - first extract number from string like '$12.99'
+    // Handle price format - first extract number from string like '₹12.99'
     const priceString = item.price.replace(/[^0-9.]/g, '');
     const price = parseFloat(priceString) || 0; // Default to 0 if parsing fails
     return sum + (price * item.quantity);
