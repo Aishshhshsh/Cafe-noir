@@ -154,7 +154,7 @@ export const Order = () => {
                       <span className="font-body">{item.name}</span>
                     </div>
                     <span className="font-accent">
-                      ${(parseFloat(item.price.replace(/[^0-9.]/g, '')) * item.quantity).toFixed(2)}
+                      ₹{(parseFloat(item.price.replace(/[^0-9.]/g, '')) * item.quantity).toFixed(2)}
                     </span>
                   </div>
                 ))}
@@ -163,15 +163,15 @@ export const Order = () => {
               <div className="pt-4 border-t border-border/40">
                 <div className="flex justify-between font-body">
                   <span>Subtotal</span>
-                  <span>${totalPrice.toFixed(2)}</span>
+                  <span>₹{totalPrice.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between font-body mt-1">
                   <span>Service Fee</span>
-                  <span>${(totalPrice * 0.05).toFixed(2)}</span>
+                  <span>₹{(totalPrice * 0.05).toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between font-accent text-lg mt-4">
                   <span>Total</span>
-                  <span>${(totalPrice * 1.05).toFixed(2)}</span>
+                  <span>₹{(totalPrice * 1.05).toFixed(2)}</span>
                 </div>
               </div>
             </div>
