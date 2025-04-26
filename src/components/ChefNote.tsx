@@ -53,7 +53,7 @@ export const ChefNote = () => {
           <div className="pt-4 border-t">
             <p className="text-sm italic text-muted-foreground">
               "Cooking is an art, but all art requires knowing something about the techniques and materials" <br/>
-              — Nathan Myhrvold
+              — Ayansh Arora
             </p>
           </div>
         </div>
