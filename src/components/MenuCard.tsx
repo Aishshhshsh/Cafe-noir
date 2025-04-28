@@ -83,7 +83,7 @@ export const MenuCard = ({
   // Start text animation after card is visible with a delay
   useEffect(() => {
     // Special handling for breakfast section items
-    const isBreakfastItem = document.getElementById(`item-${item.id}`)?.closest('#breakfast') !== null;
+    const isBreakfastItem = document.getElementById(`item-₹{item.id}`)?.closest('#breakfast') !== null;
     
     if (isVisible || (isBreakfastItem && index < 3)) {
       const timer = setTimeout(() => {
@@ -144,7 +144,7 @@ export const MenuCard = ({
   const handleAddToTray = () => {
     setIsAdding(true);
     addToTray(item, quantity, instructions);
-    toast.success(`Added ${item.name} to your tray!`);
+    toast.success(`Added ₹{item.name} to your tray!`);
     
     // Reset and close dialog after adding
     setTimeout(() => {
@@ -165,7 +165,7 @@ export const MenuCard = ({
         <div className="card-wrapper">
           <button
             id={`item-${item.id}`}
-            className={`card ${item.isChefSpecial ? 'card--special' : ''}`}
+            className={`card ₹{item.isChefSpecial ? 'card--special' : ''}`}
             onClick={() => setIsOpen(true)}
             aria-haspopup="dialog"
           >
