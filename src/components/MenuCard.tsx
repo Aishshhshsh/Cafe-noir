@@ -83,7 +83,7 @@ export const MenuCard = ({
   // Start text animation after card is visible with a delay
   useEffect(() => {
     // Special handling for breakfast section items
-    const isBreakfastItem = document.getElementById(`item-₹{item.id}`)?.closest('#breakfast') !== null;
+    const isBreakfastItem = document.getElementById(`item-${item.id}`)?.closest('#breakfast') !== null;
     
     if (isVisible || (isBreakfastItem && index < 3)) {
       const timer = setTimeout(() => {
