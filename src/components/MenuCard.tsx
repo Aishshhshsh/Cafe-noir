@@ -144,7 +144,7 @@ export const MenuCard = ({
   const handleAddToTray = () => {
     setIsAdding(true);
     addToTray(item, quantity, instructions);
-    toast.success(`Added ₹{item.name} to your tray!`);
+    toast.success(`Added ${item.name} to your tray!`);
     
     // Reset and close dialog after adding
     setTimeout(() => {
