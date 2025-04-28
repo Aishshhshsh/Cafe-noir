@@ -62,20 +62,7 @@ const getImagePath = (itemName: string): string => {
   });
   return `/images/${words.join('')}.png`;
 };
-// Add this function to handle order submission
-const submitOrder = async (orderData: OrderType) => {
-  try {
-    const response = await fetch('http://localhost:3001/api/orders', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(orderData)
-    });
-    return await response.json();
-  } catch (error) {
-    console.error("Order submission failed:", error);
-    throw error;
-  }
-}; //
+
 export const MenuCard = ({ 
   item, 
   index, 
