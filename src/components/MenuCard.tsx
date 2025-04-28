@@ -164,7 +164,7 @@ export const MenuCard = ({
       >
         <div className="card-wrapper">
           <button
-            id={`item-${item.id}`}
+            id={`item-₹{item.id}`}
             className={`card ₹{item.isChefSpecial ? 'card--special' : ''}`}
             onClick={() => setIsOpen(true)}
             aria-haspopup="dialog"
