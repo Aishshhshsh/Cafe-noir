@@ -10,14 +10,49 @@ export const Tray = () => {
   const navigate = useNavigate();
   const prefersReducedMotion = useReducedMotion();
   
-  const handleCheckout = () => {
-    toggleTray();
-    navigate("/order");
-    toast.success("Proceeding to checkout", {
-      description: "Almost there! Just a few more steps to complete your order.",
-      duration: 3000,
+  const handleCheckout = async () => {
+  try {
+    // Prepare order data
+    const orderData = {
+      customerName: "John Doe", // Replace with actual user input or state
+      items: items.map((item) => ({
+        name: item.name,
+        quantity: item.quantity,
+        price: parseFloat(item.price), // Assuming price is a string, convert to number
+        specialInstructions: item.specialInstructions || ""
+      })),
+      totalPrice: totalPrice
+    };
+
+    // Send order to backend
+    const response = await fetch('http://localhost:3001/api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
     });
-  };
+
+    if (!response.ok) throw new Error('Order submission failed');
+
+    const result = await response.json();
+    console.log('Order submitted successfully:', result);
+
+    // Proceed with your existing flow
+    toggleTray();
+    clearTray(); // Clear the cart after successful order
+    navigate("/order");
+    toast.success("Order placed successfully!", {
+      description: "Thank you for your order. We’re preparing it now!",
+      duration: 3000
+    });
+  } catch (error) {
+    console.error("Error submitting order:", error);
+    toast.error("Failed to place order", {
+      description: "Something went wrong. Please try again.",
+      duration: 3000
+    });
+  }
+};
+
 
   // Animation variants
   const drawerVariants = {
