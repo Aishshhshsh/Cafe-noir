@@ -18,21 +18,6 @@ export const Tray = () => {
       duration: 3000,
     });
   };
-const handlePlaceOrder = async () => {
-  const orderData = {
-    customerName: enteredName, // from input field
-    items: cartItems, // from tray context or state
-    totalPrice: calculateTotal(cartItems),
-  };
-
-  await fetch('http://localhost:3001/api/orders', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(orderData)
-  });
-};
 
   // Animation variants
   const drawerVariants = {
@@ -242,7 +227,7 @@ const handlePlaceOrder = async () => {
                             <motion.button 
                               onClick={() => {
                                 removeFromTray(item.id);
-                                toast.info(Removed ${item.name} from your tray);
+                                toast.info(`Removed ${item.name} from your tray`);
                               }}
                               className="opacity-50 hover:opacity-100 transition-opacity text-cafe-mocha/70 hover:text-cafe-mocha"
                               whileHover={{ scale: 1.1, rotate: 90 }}
@@ -310,7 +295,7 @@ const handlePlaceOrder = async () => {
                         animate={{ scale: 1 }}
                         transition={{ type: "spring", stiffness: 300 }}
                       >
-                        {"₹" + totalPrice.toFixed(2)}
+                        ${totalPrice.toFixed(2)}
                       </motion.span>
                     </div>
                     
