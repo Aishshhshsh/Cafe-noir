@@ -30,7 +30,7 @@ export const Order = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  /*const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setOrderPlaced(true);
     
@@ -46,54 +46,7 @@ export const Order = () => {
       clearTray();
     }, 1000);
   };
-  */
-  const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-
-  const orderData = {
-    customerName: formData.name, // from your input
-    items: items.map((item) => ({
-      name: item.name,
-      quantity: item.quantity,
-      price: parseFloat(item.price.replace(/[^0-9.]/g, '')),
-      specialInstructions: item.specialInstructions || "",
-    })),
-    totalPrice: totalPrice,
-  };
-
-  try {
-    const response = await fetch('http://localhost:3001/api/orders', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(orderData)
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to place order');
-    }
-
-    const result = await response.json();
-    console.log('✅ Order saved:', result);
-
-    // Show success confetti and reset cart
-    setOrderPlaced(true);
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 }
-    });
-
-    setTimeout(() => {
-      clearTray();
-    }, 1000);
-
-  } catch (error) {
-    console.error('❌ Error placing order:', error);
-  }
-};
-
+  
   const goToNextStep = () => {
     setCurrentStep(prev => prev + 1);
   };
@@ -173,9 +126,9 @@ export const Order = () => {
   }
   
   return (
-    <div className={`min-h-screen ${
+    <div className={min-h-screen ${
       timeOfDay === 'evening' ? 'bg-cafe-mocha text-cafe-cream' : 'bg-cafe-cream text-cafe-mocha'
-    }`}>
+    }}>
       <div className="max-w-4xl mx-auto p-6">
         <div className="flex items-center mb-8">
           <Button 
