@@ -295,7 +295,7 @@ export const Tray = () => {
                         animate={{ scale: 1 }}
                         transition={{ type: "spring", stiffness: 300 }}
                       >
-                        ${totalPrice.toFixed(2)}
+                        {"₹" + totalPrice.toFixed(2)}
                       </motion.span>
                     </div>
                     
